@@ -13,7 +13,7 @@
 }
 #recco div.wrap article.recruit::before {
   content: "";
-  background-image: url(../img/man.png);
+  background-image: url(../img/main-recruit.png);
   width: 323px;
   height: 769px;
   display: block;
@@ -66,10 +66,13 @@
   justify-content: center;
   gap: 20px;
   position: relative;
+  background-image: url(../img/main-corporate.jpg);
+  background-position: center;
+  background-size: contain;
 }
 #recco div.wrap article.corpo::before{
   content: "";
-  border: 2px solid red;
+  border: 2px solid #ccc;
   width: calc(100% - 40px);
   height: calc(100% - 40px);
   position: absolute;

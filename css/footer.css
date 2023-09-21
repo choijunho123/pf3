@@ -80,13 +80,14 @@ footer .btop{
   height: 80px;
   display: block;
   background-color: #222;
-  font-size: 0;
-  background-image: url(../img/uparrow.svg);
-  background-size: 40%;
+  font-size: 0px;
+  background-image: url(../img/top.svg);
+  background-size: 80%;
   background-position: center;
   background-repeat: no-repeat;
-  transform: rotate(90deg);
+  transform: rotate(0deg);
   position: fixed;
   right: 60px;
   bottom: calc(234.8px - 40px);
+  border-radius: 50%;
 }

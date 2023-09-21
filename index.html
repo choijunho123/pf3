@@ -39,7 +39,49 @@
                 $("div.wgnb").slideUp();
            });
         });
-    </script> 
+    </script>
+    <!-- 헤더스크롤이벤트 -->
+    <script>
+        $(document).ready(function(){
+            var ws=$(window).scrollTop(); // 윈도우창의 스크롤탑값을 가져와서 변수 ws에 저장하시오
+            var headerY=$("header").offset().top; // 헤더의 탑값을 가져와서 변수headerY에 저장하시오 
+            var headerH=$("header").height(); // 헤더의 높이값을 가져와서 변수headerH에 저장하시오
+            var businessY=$("#business").offset().top-headerY-headerH;
+            // 비즈니스의 탑값에서 변수header값과 변수headerH값을 빼서 변수 businessY에 넣어라
+            console.log(ws); // 콘솔창에 변수ws값을 표시해라
+
+            // -1 스크롤시 대메뉴 보이게 안보이게
+            $(window).scroll(function(){ // 윈도우창을 스크롤하면 실행하시오
+
+                var scrollup = $(window).scrollTop() >= ws; //윈도우청의 스크롤 탑값이 변수ws보다 크거나 같다  (비교) >> 비교하면 결과값이 true(잠) 또는 false(거짓)    
+                ws=$(window).scrollTop(); // 윈도우창의 스크롤 탑값을 가져와서 변수 ws에 저장하시오
+
+                if(ws>headerY){ // 변수 ws값이 변수 headerY보다 크다면
+                    $("header").addClass("fixed");
+                }
+                if(ws>businessY){ //변수 ws값이 변수 >businessY보다 크다면
+                    $("header").addClass("up");
+                }
+                if(ws<businessY){
+                    $("header").removeClass("up");
+                }
+                if(ws<headerY){
+                    $("header").removeClass("fixed");
+                }
+                if(ws>businessY && scrollup){ //조건이 참이면 && 그리고 and
+                    $("header").addClass("up"); //상단메뉴가 위로 사라짐
+                }else{
+                    $("header").removeClass("up");
+                }
+            // -2 위로가기 화살표 보이게 안보이게
+                if(ws>businessY && scrollup){
+                    $("footer .btop").fadeOut();
+                }else{
+                    $("footer .btop").fadeIn();
+                }
+            });
+        });
+    </script>
 </head>
 <body>  
     <!-- 상단영역 -->
